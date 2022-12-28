@@ -5,6 +5,7 @@ import { getPostsData } from '../lib/post';
 
 import { siteTitle } from '../components/Layout';
 import Link from 'next/link';
+import Head from 'next/head';
 
 
 //SGの場合
@@ -18,18 +19,12 @@ export async function getStaticProps() {
   }
 }
 
-// //SSRの場合
-// export async function getSeverSideProps(context) {
-//   return {
-//     props: {
-
-//     }
-//   }
-// }
-
 export default function Home({ allPostsData }) {
   return (
-    <Layout>
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <section className={utilStyles.headingMd}>
         <p>私はフルスタックエンジニアです/Udemy講師として各同しています/好きな言語はjavascriptです</p>
       </section>
